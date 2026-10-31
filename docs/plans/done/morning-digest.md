@@ -77,3 +77,17 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+---
+
+## Issue list
+
+Done 2026-10-31.
+
+- [#1 Run log reader](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/1) · §1
+- [#2 Digest page](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/2) · §2a
+- [#3 Digest JSON](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/3) · §2b
+- [#4 Board link](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/4) · §2c
+- [#5 Route tests](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/5) · §2d
+- [#6 Preview for review](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/6) · §3
+- [#7 Clean up](https://github.com/Agatella/mega-s01e04-before-i-looked/issues/7) · §4
