@@ -1,5 +1,9 @@
 import type { Status } from '../status.js';
 
+// The board links each night on disk to its digest and shows the per-row ok / retry / fail
+// counts beside it (plan §2c). Counts come from `countStatuses` in src/digest/counts.ts —
+// the view only arranges them (styleguide: numbers that can be computed belong in a module).
+
 export function StatusBoard({ status }: { status: Status }) {
   return (
     <>
@@ -19,8 +23,12 @@ export function StatusBoard({ status }: { status: Status }) {
         <p class="mute">nothing in runs/</p>
       ) : (
         <ul>
-          {status.nights.map((n) => (
-            <li>{n}</li>
+          {status.nights.map(({ night, counts }) => (
+            <li>
+              <a href={`/digest/${night}`}>{night}</a>
+              {' · '}
+              {counts.ok} · {counts.retry} · {counts.fail}
+            </li>
           ))}
         </ul>
       )}
