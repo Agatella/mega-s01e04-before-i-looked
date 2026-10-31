@@ -42,5 +42,18 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
+  app.get('/api/digest/:night', (c) => {
+    // Plan §2b + ADR 0001: the page and the JSON must never disagree. Both branches run the
+    // same reader and the same `toDigestPage` (which fixes order and marks), so the only
+    // difference between `/digest/:night` and this route is the serializer.
+    const night = c.req.param('night');
+    const digest = readNight(config.runsDir, night);
+    if (digest === null) {
+      // No HTML in the JSON branch: agents parse this. 404 matches the page's 404.
+      return c.json({ night, error: 'not_found' }, 404);
+    }
+    return c.json(toDigestPage(night, digest));
+  });
+
   return app;
 }
